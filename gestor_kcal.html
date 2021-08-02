@@ -1,0 +1,170 @@
+<!--AUTOR: ANTONIO JESUS ZAFRA ARIAS -->
+<!--PROYECTO FINAL DESARROLLO DE APLICACIONES WEB -->
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="utf-8">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Clientes - Gestor Kcal - COCOSPORT</title>
+
+    <!--ICONO DE LA WEB -->
+    <link rel="icon" type="image/png" href="media/imagenes/logo.png">
+
+    <!--HOJA DE ESTILOS -->
+    <link rel="stylesheet" href="estilos/estilos.css">
+
+    <!--FUNCIONES JS -->
+    <script type="text/javascript" src="funciones/funciones.js"></script>
+</head>
+
+<body>
+    <!--CONTENEDOR PRINCIPAL -->
+    <div id="contenedor_principal">
+
+        <!--MENU PRINCIPAL DE NAVEGACION -->
+        <div id="menu">
+            <nav>
+                <li>
+                    <a><img src="media/imagenes/logo.png"></a>
+                    <a href="index.php" id="roja">Cerrar Sesion</a>
+                   <!-- <a class="texto_derecha" href="contacto.html">Contacto</a>
+                    <!-- --<p id="texto_logo">COCO-SPORT</p>-->
+                </li>
+            </nav>
+        </div>
+        <h1 class="titulo_paginas">GESTOR KCAL NECESARIAS</h1>
+
+        <!--ZONA CLIENTES -->
+        <article>
+            <div id="zona_cliente" class="animated bounceInUp delay-0s">
+
+                <!--FORMULARIO CON LOS DATOS BASICOS PARA PODER CALCULAR LA FÓRMULA -->
+                <div id="formulario_calorias">
+                    
+                    <!--FORMULARIO KCAL NECESARIAS -->
+                    <form name="form_calorias" method="get">
+                        <!--NOMBRE -->
+                        <!--<label for="nombre" id="nombre">Nombre:</label><br>-->
+                        <input type="text" name="nombre" id="nombre" placeholder="Nombre Completo:" required>
+
+
+                        <!--EDAD -->
+                        <!--<label for="edad" id="edad">Edad: </label>-->
+                        <input type="number" name="edad" id="edad" min="0" max="100" placeholder="Edad" required>
+
+                        <!--PESO -->
+                        <!--<label for="peso" id="peso">Peso<small>(kg)</small>:</label>-->
+                        <input type="number" name="peso" id="peso" min="1" max="500" placeholder="Peso(kg):" required>
+
+                        <!--ALTURA -->
+                        <!--<label for="altura" id="altura">Altura<small>(cm)</small>:</label>-->
+                        <input type="number" name="altura" id="altura" min="1" max="300" placeholder="Altura(cm):" required>
+
+                        <br>
+                        <!--GÉNERO-->
+                        <div id="genero">
+
+                            <p>Sexo:</p>
+                            <select id="sexo" name="sexo" required>
+                                <option id="hombre" value="hombre">Hombre</option>
+                                <option id="mujer" value="mujer">Mujer</option>
+                            </select>
+                        </div>
+
+                        <!--NIVEL DE ACTIVIDAD FÍSICA DIARIA-->
+                        <div id="nivel_actividad_fisica">
+
+                            <p>Nivel de actividad física diaria:</p>
+                            <!--SELECT CON LAS DIFERENTES OPCIONES -->
+                            <select name="actividad_fisica" id="actividad_fisica" required>
+
+                                <!--NO ACTIVO-->
+                                <option value="no_activo"><strong>NO ACTIVO</strong><br>
+                                    <small>Sobre todo sentado (ej. trabajo de oficina)</small>
+                                </option>
+
+                                <!--ALGO ACTIVO -->
+                                <option value="algo_activo"><strong>ALGO ACTIVO</strong>
+                                    <small>Sobre todo de pie (ej. cajero, profesor))</small>
+                                </option>
+
+                                <!--ACTIVO -->
+                                <option value="activo"><strong> ACTIVO</strong>
+                                    <small>Sobre todo andando (ej. vendedor, camarero)</small>
+                                </option>
+
+                                <!--MUY ACTICO -->
+                                <option value="muy_activo"><strong>MUY ACTIVO</strong>
+                                    <small>Trabajos físicos (ej. construcción,agricultura)</small>
+                                </option>
+                            </select>
+                        </div>
+
+
+                    </form>
+
+                    <!--BOTÓN PARA ENVIAR LOS DATOS DEL FORMULARIO -->
+                    <input id="formulario_calorias_boton" type="submit" value="CALCULAR CALORÍAS DIARIAS" onclick="calcular_calorias()">
+
+                    
+                    <!--BOTÓN ATRAS -->
+                    <p id="boton_atras"><a href="maqueta_usuario_registrado.php">Atrás</a>
+
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!--MOSTRAMOS AL USUARIO EL NUMERO DE CALORIAS-->
+        <div id="datos_calorias_usuario" class="animated fadeInRightBig delay-0s" >
+
+            <!--CALORIAS PARA BAJAR DE PESO -->
+            <div class="informacion_calorias">
+                <h2>BAJAR PESO</h2>
+                <img class="imagen_informacion_calorias" src="media/imagenes/bajar_calorias.svg">
+
+                <p class="inf_calorias" id="datos_bajar_peso"></p>
+
+                <p>Consumiendo estas calorías saludablemente te permitirá bajar tu peso.</p>
+
+            </div>
+
+            <!--CALORÍAS PARA MANTENER EL PESO -->
+            <div class="informacion_calorias">
+                <h2>MANTENER PESO</h2>
+                <img class="imagen_informacion_calorias" src="media/imagenes/mantener_calorias.svg">
+                <p class="inf_calorias" id="datos_mantener_peso"></p>
+
+                <p>Consumiendo estas calorías saludablemente te permitirá mantener tu peso.</p>
+
+            </div>
+
+            <!--CALORÍAS PARA SUBIR DE PESO -->
+            <div class="informacion_calorias">
+                <h2>SUBIR PESO</h2>
+                <img class="imagen_informacion_calorias" src="media/imagenes/subir_calorias.svg">
+                <p class="inf_calorias" id="datos_subir_peso"></p>
+
+                <p>Consumiendo estas calorías saludablemente te permitirá subir tu peso.</p>
+
+            </div>
+
+
+        </div>
+
+        <!--PIE DE PAGINA -->
+        <footer>
+            <div id="pie">
+                <p>Copyright © 2020 <a href="https://www.orobcode.com">Orob Code</a> | Creado por Antonio Zafra</p>
+
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
